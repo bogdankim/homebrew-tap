@@ -9,6 +9,13 @@ cask "clickraise" do
 
   app "ClickRaise.app"
 
+  # Releases are built by CI but not notarized; without this Gatekeeper
+  # refuses to launch the quarantined app.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/ClickRaise.app"]
+  end
+
   uninstall quit: "dev.bogdankim.ClickRaise"
 
   zap trash: [
@@ -16,12 +23,10 @@ cask "clickraise" do
   ]
 
   caveats <<~EOS
-    ClickRaise releases are not notarized. If macOS refuses to open the app,
-    reinstall with the quarantine flag disabled:
-
-      brew reinstall --cask clickraise --no-quarantine
-
     ClickRaise needs Accessibility permission:
       System Settings → Privacy & Security → Accessibility → enable ClickRaise
+
+    Because releases are ad-hoc signed, the permission must be re-granted
+    after every update (toggle ClickRaise off and on in that list).
   EOS
 end

@@ -5,7 +5,7 @@ Personal [Homebrew](https://brew.sh) tap.
 ## Usage
 
 ```sh
-brew install --cask bogdankim/tap/clickraise --no-quarantine
+brew install --cask bogdankim/tap/clickraise
 ```
 
 ## Casks
