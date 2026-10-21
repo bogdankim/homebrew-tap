@@ -1,8 +1,8 @@
 class Encore < Formula
   desc "Fast terminal client for Apple Music on macOS"
   homepage "https://github.com/bogdankim/encore"
-  url "https://github.com/bogdankim/encore/releases/download/v0.1.0/encore-0.1.0-darwin-arm64.tar.gz"
-  sha256 "cb09ffbd6f388a538a1ec38c19a3e0ad5505affdd8e89f6ae7fd11ee2647f3e4"
+  url "https://github.com/bogdankim/encore/releases/download/v0.2.0/encore-0.2.0-darwin-arm64.tar.gz"
+  sha256 "85c41db9a29981a0c83e3e474a1de678d690adf60f253caad32cb39fb3e02137"
   license "MIT"
 
   depends_on arch: :arm64
